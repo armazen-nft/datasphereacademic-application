@@ -1,0 +1,185 @@
+version: '3.8'
+
+# ============================================
+# MOLTBOOK DATASPHERE ACADEMIC - DOCKER COMPOSE
+# ============================================
+
+services:
+  # ============================================
+  # MONGODB DATABASE
+  # ============================================
+  mongodb:
+    image: mongo:7
+    container_name: moltbook-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-changeme}
+      MONGO_INITDB_DATABASE: moltbook_academic
+    volumes:
+      - mongodb_data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - moltbook-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand({ping: 1})"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # REDIS CACHE
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: moltbook-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - moltbook-network
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # ============================================
+  # BACKEND API
+  # ============================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/Dockerfile.backend
+    container_name: moltbook-backend
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      MONGODB_URI: ${MONGODB_URI:-mongodb://admin:changeme@mongodb:27017/moltbook_academic?authSource=admin}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379}
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-key-change-in-production}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      
+      # AI Validation Config
+      VALIDATIONS_TO_PUBLISH: ${VALIDATIONS_TO_PUBLISH:-3}
+      MIN_VALIDATION_SCORE: ${MIN_VALIDATION_SCORE:-70}
+      REPUTATION_DECAY_RATE: ${REPUTATION_DECAY_RATE:-0.02}
+      
+      # Validation Weights
+      SEMANTIC_WEIGHT: ${SEMANTIC_WEIGHT:-0.35}
+      CITATION_WEIGHT: ${CITATION_WEIGHT:-0.30}
+      ORIGINALITY_WEIGHT: ${ORIGINALITY_WEIGHT:-0.35}
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - backend_logs:/app/logs
+      - backend_uploads:/app/uploads
+    networks:
+      - moltbook-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ============================================
+  # FRONTEND
+  # ============================================
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3001/api}
+    container_name: moltbook-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+    depends_on:
+      - backend
+    networks:
+      - moltbook-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ============================================
+  # NGINX REVERSE PROXY (Production)
+  # ============================================
+  nginx:
+    image: nginx:alpine
+    container_name: moltbook-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - moltbook-network
+    profiles:
+      - production
+
+  # ============================================
+  # WATCHTOWER (Auto-update containers)
+  # ============================================
+  watchtower:
+    image: containrrr/watchtower
+    container_name: moltbook-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_POLL_INTERVAL: 3600
+      WATCHTOWER_INCLUDE_STOPPED: "true"
+      WATCHTOWER_REVIVE_STOPPED: "false"
+    profiles:
+      - production
+
+# ============================================
+# VOLUMES
+# ============================================
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_logs:
+    driver: local
+  backend_uploads:
+    driver: local
+  nginx_logs:
+    driver: local
+
+# ============================================
+# NETWORKS
+# ============================================
+networks:
+  moltbook-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

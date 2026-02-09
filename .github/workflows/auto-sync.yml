@@ -1,0 +1,51 @@
+name: Sync with Upstream
+
+on:
+  schedule:
+    # Roda todos os dias às 2h da manhã
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    name: Sync with Upstream Repository
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/armazen-nft/moltbook-datasphereacademic-application.git || true
+          git fetch upstream
+
+      - name: Sync main branch
+        run: |
+          git checkout main
+          git merge upstream/main --no-edit || true
+          git push origin main || true
+
+      - name: Create sync report
+        if: always()
+        run: |
+          echo "## Sync Report - $(date)" > sync-report.md
+          echo "" >> sync-report.md
+          echo "- Upstream: armazen-nft/moltbook-datasphereacademic-application" >> sync-report.md
+          echo "- Status: ${{ job.status }}" >> sync-report.md
+          echo "- Commit: ${{ github.sha }}" >> sync-report.md
+
+      - name: Upload sync report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-report
+          path: sync-report.md
