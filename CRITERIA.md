@@ -1,142 +1,142 @@
-# Garantir que a pasta docs exista
+﻿# Garantir que a pasta docs exista
 if (!(Test-Path ".\docs")) {
     New-Item -ItemType Directory -Path ".\docs"
 }
 
-# Criar CRITERIA.md com codificaÃ§Ã£o UTF-8 correta
+# Criar CRITERIA.md com codificaÃƒÂ§ÃƒÂ£o UTF-8 correta
 Set-Content -Path ".\docs\CRITERIA.md" -Value @"
-# CritÃ©rios de AvaliaÃ§Ã£o CientÃ­fica â€“ Datasphere Academic
+# CritÃƒÂ©rios de AvaliaÃƒÂ§ÃƒÂ£o CientÃƒÂ­fica Ã¢â‚¬â€œ Datasphere Academic
 
-Este documento define de forma explÃ­cita os critÃ©rios de avaliaÃ§Ã£o utilizados na plataforma Datasphere Academic.
+Este documento define de forma explÃƒÂ­cita os critÃƒÂ©rios de avaliaÃƒÂ§ÃƒÂ£o utilizados na plataforma Datasphere Academic.
 
-Ele existe para evitar ambiguidade epistemolÃ³gica, automaÃ§Ã£o acrÃ­tica e substituiÃ§Ã£o indevida de julgamento cientÃ­fico humano por algoritmos.
+Ele existe para evitar ambiguidade epistemolÃƒÂ³gica, automaÃƒÂ§ÃƒÂ£o acrÃƒÂ­tica e substituiÃƒÂ§ÃƒÂ£o indevida de julgamento cientÃƒÂ­fico humano por algoritmos.
 
-Nenhuma decisÃ£o final de mÃ©rito cientÃ­fico Ã© tomada exclusivamente por InteligÃªncia Artificial.
-
----
-
-## PrincÃ­pio Fundamental
-
-A plataforma adota o seguinte princÃ­pio:
-
-A InteligÃªncia Artificial atua apenas como ferramenta de triagem tÃ©cnica e apoio analÃ­tico.  
-A avaliaÃ§Ã£o de mÃ©rito cientÃ­fico Ã© sempre humana ou hÃ­brida, com predominÃ¢ncia humana.
+Nenhuma decisÃƒÂ£o final de mÃƒÂ©rito cientÃƒÂ­fico ÃƒÂ© tomada exclusivamente por InteligÃƒÂªncia Artificial.
 
 ---
 
-## SeparaÃ§Ã£o de Camadas de AvaliaÃ§Ã£o
+## PrincÃƒÂ­pio Fundamental
 
-### 1. Triagem TÃ©cnica Assistida por IA
+A plataforma adota o seguinte princÃƒÂ­pio:
+
+A InteligÃƒÂªncia Artificial atua apenas como ferramenta de triagem tÃƒÂ©cnica e apoio analÃƒÂ­tico.  
+A avaliaÃƒÂ§ÃƒÂ£o de mÃƒÂ©rito cientÃƒÂ­fico ÃƒÂ© sempre humana ou hÃƒÂ­brida, com predominÃƒÂ¢ncia humana.
+
+---
+
+## SeparaÃƒÂ§ÃƒÂ£o de Camadas de AvaliaÃƒÂ§ÃƒÂ£o
+
+### 1. Triagem TÃƒÂ©cnica Assistida por IA
 
 A IA pode executar apenas tarefas formais e instrumentais, incluindo:
 
-- DetecÃ§Ã£o de similaridade textual (plÃ¡gio)
-- VerificaÃ§Ã£o de estrutura acadÃªmica mÃ­nima
-- AnÃ¡lise de coerÃªncia textual bÃ¡sica
-- IdentificaÃ§Ã£o de referÃªncias inconsistentes ou ausentes
-- GeraÃ§Ã£o de relatÃ³rios auxiliares para revisores humanos
+- DetecÃƒÂ§ÃƒÂ£o de similaridade textual (plÃƒÂ¡gio)
+- VerificaÃƒÂ§ÃƒÂ£o de estrutura acadÃƒÂªmica mÃƒÂ­nima
+- AnÃƒÂ¡lise de coerÃƒÂªncia textual bÃƒÂ¡sica
+- IdentificaÃƒÂ§ÃƒÂ£o de referÃƒÂªncias inconsistentes ou ausentes
+- GeraÃƒÂ§ÃƒÂ£o de relatÃƒÂ³rios auxiliares para revisores humanos
 
-A IA **nÃ£o emite parecer cientÃ­fico final**.
+A IA **nÃƒÂ£o emite parecer cientÃƒÂ­fico final**.
 
 ---
 
-### 2. AvaliaÃ§Ã£o CientÃ­fica Humana
+### 2. AvaliaÃƒÂ§ÃƒÂ£o CientÃƒÂ­fica Humana
 
-A avaliaÃ§Ã£o de mÃ©rito cientÃ­fico Ã© realizada por revisores humanos qualificados e inclui:
+A avaliaÃƒÂ§ÃƒÂ£o de mÃƒÂ©rito cientÃƒÂ­fico ÃƒÂ© realizada por revisores humanos qualificados e inclui:
 
-- Validade metodolÃ³gica
-- ConsistÃªncia lÃ³gica e matemÃ¡tica
+- Validade metodolÃƒÂ³gica
+- ConsistÃƒÂªncia lÃƒÂ³gica e matemÃƒÂ¡tica
 - Originalidade conceitual
-- RelevÃ¢ncia para a Ã¡rea de conhecimento
-- AderÃªncia a princÃ­pios Ã©ticos de pesquisa
+- RelevÃƒÂ¢ncia para a ÃƒÂ¡rea de conhecimento
+- AderÃƒÂªncia a princÃƒÂ­pios ÃƒÂ©ticos de pesquisa
 
-Somente humanos podem decidir aceitaÃ§Ã£o, rejeiÃ§Ã£o ou solicitaÃ§Ã£o de revisÃµes substanciais.
+Somente humanos podem decidir aceitaÃƒÂ§ÃƒÂ£o, rejeiÃƒÂ§ÃƒÂ£o ou solicitaÃƒÂ§ÃƒÂ£o de revisÃƒÂµes substanciais.
 
 ---
 
-## CritÃ©rios CientÃ­ficos Fundamentais
+## CritÃƒÂ©rios CientÃƒÂ­ficos Fundamentais
 
-Cada submissÃ£o deve ser analisada segundo os seguintes eixos:
+Cada submissÃƒÂ£o deve ser analisada segundo os seguintes eixos:
 
 ### A. Metodologia
-- Clareza do mÃ©todo
+- Clareza do mÃƒÂ©todo
 - Reprodutibilidade
-- AdequaÃ§Ã£o estatÃ­stica ou lÃ³gica
-- LimitaÃ§Ãµes explicitadas
+- AdequaÃƒÂ§ÃƒÂ£o estatÃƒÂ­stica ou lÃƒÂ³gica
+- LimitaÃƒÂ§ÃƒÂµes explicitadas
 
 ### B. Originalidade
-- ContribuiÃ§Ã£o conceitual real
-- NÃ£o trivialidade em relaÃ§Ã£o ao estado da arte
-- Justificativa clara do que Ã© novo
+- ContribuiÃƒÂ§ÃƒÂ£o conceitual real
+- NÃƒÂ£o trivialidade em relaÃƒÂ§ÃƒÂ£o ao estado da arte
+- Justificativa clara do que ÃƒÂ© novo
 
-### C. FundamentaÃ§Ã£o
+### C. FundamentaÃƒÂ§ÃƒÂ£o
 - Uso adequado de literatura relevante
-- ReferÃªncias verificÃ¡veis
-- EvitaÃ§Ã£o de citaÃ§Ãµes decorativas
+- ReferÃƒÂªncias verificÃƒÂ¡veis
+- EvitaÃƒÂ§ÃƒÂ£o de citaÃƒÂ§ÃƒÂµes decorativas
 
-### D. CoerÃªncia Interna
-- AusÃªncia de contradiÃ§Ãµes internas
-- Encadeamento lÃ³gico consistente
-- ConclusÃµes compatÃ­veis com os dados apresentados
+### D. CoerÃƒÂªncia Interna
+- AusÃƒÂªncia de contradiÃƒÂ§ÃƒÂµes internas
+- Encadeamento lÃƒÂ³gico consistente
+- ConclusÃƒÂµes compatÃƒÂ­veis com os dados apresentados
 
-### E. Ã‰tica e Integridade
-- AusÃªncia de fabricaÃ§Ã£o ou manipulaÃ§Ã£o de dados
-- DeclaraÃ§Ã£o de conflitos de interesse quando aplicÃ¡vel
-- Respeito a normas Ã©ticas da Ã¡rea
-
----
-
-## O Que a Plataforma Explicitamente NÃ£o Faz
-
-Para evitar falsas promessas tecnolÃ³gicas, o Datasphere Academic declara que:
-
-- NÃ£o automatiza julgamento cientÃ­fico
-- NÃ£o substitui revisÃ£o por pares humanos
-- NÃ£o utiliza mÃ©tricas de popularidade como critÃ©rio de mÃ©rito
-- NÃ£o tokeniza decisÃµes cientÃ­ficas como incentivo primÃ¡rio
+### E. Ãƒâ€°tica e Integridade
+- AusÃƒÂªncia de fabricaÃƒÂ§ÃƒÂ£o ou manipulaÃƒÂ§ÃƒÂ£o de dados
+- DeclaraÃƒÂ§ÃƒÂ£o de conflitos de interesse quando aplicÃƒÂ¡vel
+- Respeito a normas ÃƒÂ©ticas da ÃƒÂ¡rea
 
 ---
 
-## DiscordÃ¢ncia, ApelaÃ§Ã£o e RevisÃ£o
+## O Que a Plataforma Explicitamente NÃƒÂ£o Faz
 
-Autores tÃªm direito a:
+Para evitar falsas promessas tecnolÃƒÂ³gicas, o Datasphere Academic declara que:
 
-- Acesso aos relatÃ³rios gerados por IA
+- NÃƒÂ£o automatiza julgamento cientÃƒÂ­fico
+- NÃƒÂ£o substitui revisÃƒÂ£o por pares humanos
+- NÃƒÂ£o utiliza mÃƒÂ©tricas de popularidade como critÃƒÂ©rio de mÃƒÂ©rito
+- NÃƒÂ£o tokeniza decisÃƒÂµes cientÃƒÂ­ficas como incentivo primÃƒÂ¡rio
+
+---
+
+## DiscordÃƒÂ¢ncia, ApelaÃƒÂ§ÃƒÂ£o e RevisÃƒÂ£o
+
+Autores tÃƒÂªm direito a:
+
+- Acesso aos relatÃƒÂ³rios gerados por IA
 - Justificativas humanas documentadas
-- SolicitaÃ§Ã£o de nova rodada de revisÃ£o
-- ContestaÃ§Ã£o fundamentada de decisÃµes
+- SolicitaÃƒÂ§ÃƒÂ£o de nova rodada de revisÃƒÂ£o
+- ContestaÃƒÂ§ÃƒÂ£o fundamentada de decisÃƒÂµes
 
-Toda decisÃ£o deve ser acompanhada de justificativa registrada.
+Toda decisÃƒÂ£o deve ser acompanhada de justificativa registrada.
 
 ---
 
-## EvoluÃ§Ã£o dos CritÃ©rios
+## EvoluÃƒÂ§ÃƒÂ£o dos CritÃƒÂ©rios
 
-Os critÃ©rios cientÃ­ficos nÃ£o sÃ£o estÃ¡ticos.
+Os critÃƒÂ©rios cientÃƒÂ­ficos nÃƒÂ£o sÃƒÂ£o estÃƒÂ¡ticos.
 
 Eles podem ser revisados por meio de:
-- ComitÃªs cientÃ­ficos rotativos
-- Consulta pÃºblica documentada
-- Registro explÃ­cito de mudanÃ§as e suas motivaÃ§Ãµes
+- ComitÃƒÂªs cientÃƒÂ­ficos rotativos
+- Consulta pÃƒÂºblica documentada
+- Registro explÃƒÂ­cito de mudanÃƒÂ§as e suas motivaÃƒÂ§ÃƒÂµes
 
 ---
 
-## TransparÃªncia
+## TransparÃƒÂªncia
 
-Este documento Ã© pÃºblico, versionado e auditÃ¡vel.
+Este documento ÃƒÂ© pÃƒÂºblico, versionado e auditÃƒÂ¡vel.
 
-Nenhum critÃ©rio implÃ­cito ou oculto Ã© utilizado na avaliaÃ§Ã£o de trabalhos submetidos Ã  plataforma.
+Nenhum critÃƒÂ©rio implÃƒÂ­cito ou oculto ÃƒÂ© utilizado na avaliaÃƒÂ§ÃƒÂ£o de trabalhos submetidos ÃƒÂ  plataforma.
 
 ---
 
 ## Nota Final
 
-A credibilidade cientÃ­fica da plataforma depende diretamente da clareza e do respeito a estes critÃ©rios.
+A credibilidade cientÃƒÂ­fica da plataforma depende diretamente da clareza e do respeito a estes critÃƒÂ©rios.
 
-A tecnologia deve aumentar o rigor cientÃ­fico, nunca substituÃ­-lo.
+A tecnologia deve aumentar o rigor cientÃƒÂ­fico, nunca substituÃƒÂ­-lo.
 "@ -Encoding utf8
 
 # Commit e push
 git add docs/CRITERIA.md
-git commit -m "Adiciona CRITERIA.md: critÃ©rios cientÃ­ficos explÃ­citos e separaÃ§Ã£o formal IA x humano"
+git commit -m "Adiciona CRITERIA.md: critÃƒÂ©rios cientÃƒÂ­ficos explÃƒÂ­citos e separaÃƒÂ§ÃƒÂ£o formal IA x humano"
 git push -u origin main --force
