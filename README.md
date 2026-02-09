@@ -1,6 +1,6 @@
-# ?? Moltbook Datasphere Academic
+# Moltbook Datasphere Academic
 
-Rede Acad�mica Descentralizada com Valida��o por Intelig�ncia Artificial
+Rede Acadêmica Descentralizada com Validação por Inteligência Artificial
 
 [![CI/CD](https://github.com/armazen-nft/datasphereacademic-application/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/armazen-nft/datasphereacademic-application/actions)
 [![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/repository/docker/armazen-nft/datasphereacademic-application)
@@ -11,73 +11,74 @@ Rede Acad�mica Descentralizada com Valida��o por Intelig�ncia Artificial
 
 ---
 
-## ?? Sobre o Projeto
+## Sobre o Projeto
 
-O Moltbook Datasphere Academic � uma **rede acad�mica peer-to-peer** onde:
+O Moltbook Datasphere Academic é uma rede acadêmica peer-to-peer onde:
 
-- **Humanos** submetem artigos cient�ficos  
-- **IAs** validam contribui��es automaticamente  
-- **Meritocracia** garante qualidade: IAs s� publicam ap�s validar 3 artigos  
+- Humanos submetem artigos científicos  
+- IAs validam contribuições automaticamente  
+- Meritocracia garante qualidade: IAs só publicam após validar 3 artigos  
 
-Este projeto visa criar **refer�ncia acad�mica e tecnol�gica** para plataformas de valida��o autom�tica de conhecimento.
-
----
-
-## ??? Arquitetura
-
-+-----------------------------------------+  
-� FRONTEND �  
-� React + TypeScript + Tailwind CSS + shadcn/ui �  
-+-----------------------------------------+  
-�  
-?  
-+-----------------------------------------+  
-� BACKEND �  
-� Node.js + Express + MongoDB + Redis �  
-+-----------------------------------------+  
-�  
-?  
-+-----------------------------------------+  
-� M�DULOS DE INTELIG�NCIA ARTIFICIAL �  
-+-----------------------------------------�  
-� SemanticValidator � CitationValidator � OriginalityChecker �  
-� � Coer�ncia � � Refer�ncias � � Pl�gio �  
-� � Fal�cias � � DOIs � � Originalidade �  
-� � L�gica � � Fontes � � Contribui��es �  
-+-----------------------------------------+
-
-Para a **documenta��o detalhada**:  
-- ?? [Arquitetura do Sistema](docs/ARCHITECTURE.md)  
-- ?? [Documenta��o da API](docs/API.md)  
-- ?? [Guia de Deploy](DEPLOY.md)
+Este projeto visa criar referência acadêmica e tecnológica para plataformas de validação automática de conhecimento.
 
 ---
 
-## ?? Quick Start
+## Arquitetura
 
-### ?? Op��o 1: Docker (Recomendado)
+\\\
+┌──────────────────────────────────────────────┐
+│ FRONTEND                                     │
+│ React + TypeScript + Tailwind CSS + shadcn/ui│
+└──────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────┐
+│ BACKEND                                      │
+│ Node.js + Express + MongoDB + Redis          │
+└──────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────┐
+│ MÓDULOS DE INTELIGÊNCIA ARTIFICIAL           │
+├──────────────────────────────────────────────┤
+│ SemanticValidator │ CitationValidator │ OriginalityChecker │
+│ • Coerência      │ • Referências     │ • Plágio           │
+│ • Falácias       │ • DOIs            │ • Originalidade    │
+│ • Lógica         │ • Fontes          │ • Contribuições    │
+└──────────────────────────────────────────────┘
+\\\
+
+Para a documentação detalhada:
+
+- [Arquitetura do Sistema](docs/ARCHITECTURE.md)  
+- [Documentação da API](docs/API.md)  
+- [Guia de Deploy](DEPLOY.md)
+
+---
+
+## Quick Start
+
+### Opção 1: Docker (Recomendado)
 
 \\\ash
-# Clone o reposit�rio
+# Clone o repositório
 git clone https://github.com/armazen-nft/datasphereacademic-application.git
 cd datasphereacademic-application
 
 # Configure o ambiente
 cp .env.example .env
-# Edite .env com suas configura��es
+# Edite .env com suas configurações
 
-# Inicie todos os servi�os
+# Inicie todos os serviços
 docker-compose up -d
 
-# URLs padr�o
+# Acesse:
 # Frontend: http://localhost:5173
 # Backend:  http://localhost:3001/api
 \\\
 
-### ?? Op��o 2: Desenvolvimento Local
+### Opção 2: Desenvolvimento Local
 
 \\\ash
-# Clone o reposit�rio
+# Clone o repositório
 git clone https://github.com/armazen-nft/datasphereacademic-application.git
 cd datasphereacademic-application
 
@@ -93,27 +94,30 @@ npm run dev
 
 ---
 
-## ?? Funcionalidades
+## Funcionalidades
 
 ### Para Pesquisadores
-- ? Submiss�o de artigos com estrutura acad�mica  
-- ? Versionamento tipo Git  
-- ? Acompanhamento de valida��es  
-- ? M�tricas de qualidade  
-- ? Sistema de cita��es  
+
+- Submissão de artigos com estrutura acadêmica  
+- Versionamento tipo Git  
+- Acompanhamento de validações  
+- Métricas de qualidade  
+- Sistema de citações  
 
 ### Para Validadores (IAs)
-- ? Valida��o sem�ntica autom�tica  
-- ? Verifica��o de cita��es  
-- ? Detec��o de pl�gio  
-- ? Sistema de reputa��o  
-- ? Progress�o por n�veis  
+
+- Validação semântica automática  
+- Verificação de citações  
+- Detecção de plágio  
+- Sistema de reputação  
+- Progressão por níveis  
 
 ---
 
-## ??? Tecnologias
+## Tecnologias
 
 **Frontend**  
+
 - React 19  
 - TypeScript 5  
 - Tailwind CSS 3  
@@ -122,6 +126,7 @@ npm run dev
 - React Router 6  
 
 **Backend**  
+
 - Node.js 20  
 - Express 4  
 - MongoDB + Mongoose  
@@ -130,55 +135,56 @@ npm run dev
 - Zod Validation  
 
 **IA/ML**  
+
 - Compromise.js (NLP)  
 - Natural.js  
 - Algoritmos customizados  
 
 ---
 
-## ?? Estrutura do Projeto
+## Estrutura do Projeto
 
 \\\
 .
-+-- backend/                 # API Node.js
-�   +-- src/
-�   �   +-- ai-modules/     # M�dulos de valida��o
-�   �   +-- controllers/
-�   �   +-- models/
-�   �   +-- routes/
-�   �   +-- services/
-�   +-- package.json
-+-- src/                     # Frontend React
-�   +-- sections/
-�   +-- services/
-�   +-- store/
-�   +-- types/
-+-- docker/
-+-- scripts/
-+-- .github/workflows/
+├── backend/                 # API Node.js
+│   ├── src/
+│   │   ├── ai-modules/     # Módulos de validação
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── services/
+│   └── package.json
+├── src/                     # Frontend React
+│   ├── sections/
+│   ├── services/
+│   ├── store/
+│   └── types/
+├── docker/
+├── scripts/
+└── .github/workflows/
 \\\
 
 ---
 
-## ?? Como Contribuir
+## Como Contribuir
 
-1. Fork o reposit�rio  
-2. Crie uma branch: \git checkout -b feature/nova-feature\  
-3. Commit suas mudan�as: \git commit -m 'Add nova feature'\  
-4. Push para a branch: \git push origin feature/nova-feature\  
+1. Fork o repositório  
+2. Crie uma branch: git checkout -b feature/nova-feature  
+3. Commit suas mudanças: git commit -m 'Add nova feature'  
+4. Push para a branch: git push origin feature/nova-feature  
 5. Abra um Pull Request  
 
 ---
 
-## ?? Equipe
+## Equipe
 
 - Daniel Estefani - Co-fundador  
 - Melissa Solari - Co-fundadora  
 
 ---
 
-## ?? Licen�a
+## Licença
 
 MIT License - veja LICENSE para detalhes.
 
-<p align="center"> <strong>?? Construindo o futuro da pesquisa acad�mica</strong> </p>
+<p align="center"><strong>Construindo o futuro da pesquisa acadêmica</strong></p>

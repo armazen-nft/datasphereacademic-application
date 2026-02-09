@@ -1,8 +1,8 @@
-# 🚀 Guia de Deploy - Moltbook Datasphere Academic
+# ðŸš€ Guia de Deploy - Moltbook Datasphere Academic
 
-Guia completo para fazer fork, configurar e fazer deploy da aplicação.
+Guia completo para fazer fork, configurar e fazer deploy da aplicaÃ§Ã£o.
 
-## 📋 Pré-requisitos
+## ðŸ“‹ PrÃ©-requisitos
 
 - [Git](https://git-scm.com/downloads)
 - [GitHub CLI](https://cli.github.com/)
@@ -12,42 +12,42 @@ Guia completo para fazer fork, configurar e fazer deploy da aplicação.
 
 ---
 
-## ⚡ Método 1: Script Automatizado (Recomendado)
+## âš¡ MÃ©todo 1: Script Automatizado (Recomendado)
 
 ### 1. Execute o script de setup
 
 ```bash
-# Clone o repositório original temporariamente
+# Clone o repositÃ³rio original temporariamente
 git clone https://github.com/armazen-nft/moltbook-datasphereacademic-application.git
 cd moltbook-datasphereacademic-application
 
-# Execute o script de automação
+# Execute o script de automaÃ§Ã£o
 chmod +x scripts/setup-fork.sh
 ./scripts/setup-fork.sh [seu-usuario-github]
 ```
 
-O script irá:
-- ✅ Verificar dependências
-- ✅ Criar fork do repositório
-- ✅ Clonar localmente
-- ✅ Instalar dependências
-- ✅ Configurar secrets no GitHub
-- ✅ Habilitar GitHub Actions
+O script irÃ¡:
+- âœ… Verificar dependÃªncias
+- âœ… Criar fork do repositÃ³rio
+- âœ… Clonar localmente
+- âœ… Instalar dependÃªncias
+- âœ… Configurar secrets no GitHub
+- âœ… Habilitar GitHub Actions
 
 ---
 
-## 🔧 Método 2: Fork Manual
+## ðŸ”§ MÃ©todo 2: Fork Manual
 
 ### 1. Crie o Fork no GitHub
 
 1. Acesse: https://github.com/armazen-nft/moltbook-datasphereacademic-application
-2. Clique no botão **"Fork"** no canto superior direito
-3. Selecione sua conta pessoal ou organização
+2. Clique no botÃ£o **"Fork"** no canto superior direito
+3. Selecione sua conta pessoal ou organizaÃ§Ã£o
 
 ### 2. Clone seu Fork
 
 ```bash
-# Substitua SEU_USUARIO pelo seu nome de usuário GitHub
+# Substitua SEU_USUARIO pelo seu nome de usuÃ¡rio GitHub
 git clone https://github.com/SEU_USUARIO/moltbook-datasphereacademic-application.git
 cd moltbook-datasphereacademic-application
 
@@ -55,7 +55,7 @@ cd moltbook-datasphereacademic-application
 git remote add upstream https://github.com/armazen-nft/moltbook-datasphereacademic-application.git
 ```
 
-### 3. Instale as Dependências
+### 3. Instale as DependÃªncias
 
 ```bash
 # Frontend
@@ -69,19 +69,19 @@ cd ..
 
 ---
 
-## 🐳 Método 3: Deploy com Docker
+## ðŸ³ MÃ©todo 3: Deploy com Docker
 
-### 1. Configure as Variáveis de Ambiente
+### 1. Configure as VariÃ¡veis de Ambiente
 
 ```bash
 # Copie o arquivo de exemplo
 cp .env.example .env
 
-# Edite o arquivo .env com suas configurações
+# Edite o arquivo .env com suas configuraÃ§Ãµes
 nano .env
 ```
 
-**Variáveis obrigatórias:**
+**VariÃ¡veis obrigatÃ³rias:**
 ```env
 # MongoDB
 MONGODB_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/moltbook_academic
@@ -99,17 +99,17 @@ VITE_API_URL=http://localhost:3001/api
 # Modo desenvolvimento
 docker-compose up -d
 
-# Modo produção (com NGINX)
+# Modo produÃ§Ã£o (com NGINX)
 docker-compose --profile production up -d
 ```
 
 ### 3. Verifique os Logs
 
 ```bash
-# Todos os serviços
+# Todos os serviÃ§os
 docker-compose logs -f
 
-# Serviço específico
+# ServiÃ§o especÃ­fico
 docker-compose logs -f backend
 docker-compose logs -f frontend
 docker-compose logs -f mongodb
@@ -117,16 +117,16 @@ docker-compose logs -f mongodb
 
 ---
 
-## ☁️ Método 4: Deploy em Cloud
+## â˜ï¸ MÃ©todo 4: Deploy em Cloud
 
-### Opção A: Vercel (Frontend)
+### OpÃ§Ã£o A: Vercel (Frontend)
 
 1. Instale a CLI:
 ```bash
 npm i -g vercel
 ```
 
-2. Faça login:
+2. FaÃ§a login:
 ```bash
 vercel login
 ```
@@ -136,20 +136,20 @@ vercel login
 vercel --prod
 ```
 
-### Opção B: Railway/Render (Backend)
+### OpÃ§Ã£o B: Railway/Render (Backend)
 
 1. Crie uma conta em [Railway](https://railway.app) ou [Render](https://render.com)
 
-2. Conecte seu repositório GitHub
+2. Conecte seu repositÃ³rio GitHub
 
-3. Configure as variáveis de ambiente:
+3. Configure as variÃ¡veis de ambiente:
    - `MONGODB_URI`
    - `JWT_SECRET`
    - `NODE_ENV=production`
 
-4. Deploy automático a cada push na branch `main`
+4. Deploy automÃ¡tico a cada push na branch `main`
 
-### Opção C: AWS/GCP/Azure
+### OpÃ§Ã£o C: AWS/GCP/Azure
 
 #### AWS com ECS
 
@@ -176,41 +176,41 @@ gcloud run deploy moltbook --image gcr.io/SEU-PROJETO/moltbook --platform manage
 
 ---
 
-## 🔐 Configuração de Secrets
+## ðŸ” ConfiguraÃ§Ã£o de Secrets
 
 ### GitHub Secrets (para CI/CD)
 
 Acesse: `Settings > Secrets and variables > Actions`
 
-| Secret | Descrição | Onde Obter |
+| Secret | DescriÃ§Ã£o | Onde Obter |
 |--------|-----------|------------|
 | `MONGODB_URI` | Connection string do MongoDB | MongoDB Atlas |
 | `JWT_SECRET` | Chave secreta para tokens | `openssl rand -base64 32` |
 | `VERCEL_TOKEN` | Token de deploy Vercel | Vercel Dashboard |
-| `VERCEL_ORG_ID` | ID da organização Vercel | Vercel Settings |
+| `VERCEL_ORG_ID` | ID da organizaÃ§Ã£o Vercel | Vercel Settings |
 | `VERCEL_PROJECT_ID` | ID do projeto Vercel | Vercel Project Settings |
 | `RAILWAY_TOKEN` | Token da Railway | Railway Dashboard |
-| `DOCKER_USERNAME` | Usuário Docker Hub | Docker Hub |
+| `DOCKER_USERNAME` | UsuÃ¡rio Docker Hub | Docker Hub |
 | `DOCKER_PASSWORD` | Senha Docker Hub | Docker Hub |
 
 ---
 
-## 🔄 Sincronização com Upstream
+## ðŸ”„ SincronizaÃ§Ã£o com Upstream
 
-### Automática (GitHub Actions)
+### AutomÃ¡tica (GitHub Actions)
 
-O workflow `auto-sync.yml` já está configurado para sincronizar diariamente.
+O workflow `auto-sync.yml` jÃ¡ estÃ¡ configurado para sincronizar diariamente.
 
 ### Manual
 
 ```bash
-# Busque as atualizações do upstream
+# Busque as atualizaÃ§Ãµes do upstream
 git fetch upstream
 
 # Mude para a branch main
 git checkout main
 
-# Merge as alterações
+# Merge as alteraÃ§Ãµes
 git merge upstream/main
 
 # Envie para seu fork
@@ -219,7 +219,7 @@ git push origin main
 
 ---
 
-## 📊 Monitoramento
+## ðŸ“Š Monitoramento
 
 ### Health Checks
 
@@ -242,18 +242,18 @@ journalctl -u moltbook -f
 
 ---
 
-## 🛠️ Troubleshooting
+## ðŸ› ï¸ Troubleshooting
 
-### Problema: MongoDB não conecta
+### Problema: MongoDB nÃ£o conecta
 
 ```bash
-# Verifique se o container está rodando
+# Verifique se o container estÃ¡ rodando
 docker-compose ps
 
 # Verifique os logs
 docker-compose logs mongodb
 
-# Reinicie o serviço
+# Reinicie o serviÃ§o
 docker-compose restart mongodb
 ```
 
@@ -271,24 +271,24 @@ npm run build
 
 ### Problema: CORS errors
 
-Verifique a variável `CORS_ORIGIN` no backend:
+Verifique a variÃ¡vel `CORS_ORIGIN` no backend:
 ```env
 CORS_ORIGIN=https://seu-dominio.com
 ```
 
 ---
 
-## 📚 Recursos Adicionais
+## ðŸ“š Recursos Adicionais
 
-- [Documentação do MongoDB Atlas](https://docs.atlas.mongodb.com/)
+- [DocumentaÃ§Ã£o do MongoDB Atlas](https://docs.atlas.mongodb.com/)
 - [Docker Compose Reference](https://docs.docker.com/compose/)
 - [Vercel Documentation](https://vercel.com/docs)
 - [Railway Documentation](https://docs.railway.app/)
 
 ---
 
-## 🤝 Suporte
+## ðŸ¤ Suporte
 
-Para dúvidas ou problemas:
+Para dÃºvidas ou problemas:
 - Abra uma [issue](https://github.com/armazen-nft/moltbook-datasphereacademic-application/issues)
 - Entre em contato: daniel@moltbook.academy
