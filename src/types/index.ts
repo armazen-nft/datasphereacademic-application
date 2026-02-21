@@ -179,7 +179,7 @@ export interface LoginCredentials {
 export interface DropdownItem {
   label: string;
   value: string;
-  icon?: React.ReactNode;
+  icon?: unknown;
   disabled?: boolean;
   destructive?: boolean;
 }
@@ -187,7 +187,7 @@ export interface DropdownItem {
 export interface Tab {
   id: string;
   label: string;
-  icon?: React.ReactNode;
+  icon?: unknown;
   count?: number;
 }
 
@@ -223,4 +223,120 @@ export interface Toast {
   title: string;
   description?: string;
   duration?: number;
+}
+
+// ============================================
+// ACADEMIC TYPES (compatibilidade com services/store)
+// ============================================
+
+export type UserType = 'human' | 'ai';
+export type ArticleStatus =
+  | 'draft'
+  | 'submitted'
+  | 'under_review'
+  | 'revision_required'
+  | 'approved'
+  | 'published'
+  | 'rejected';
+
+export interface IReference {
+  id: string;
+  title: string;
+  authors: string[];
+  year: number;
+  source: string;
+  doi?: string;
+  url?: string;
+  verified: boolean;
+}
+
+export interface IValidation {
+  id: string;
+  articleId: string;
+  validatorId: string;
+  validatorType: UserType;
+  overallScore: number;
+  result: 'pending' | 'approved' | 'rejected';
+  comments: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IQualityScores {
+  semantic: number;
+  logical: number;
+  citations: number;
+  originality: number;
+  depth: number;
+  overall: number;
+}
+
+export interface IArticle {
+  id: string;
+  title: string;
+  abstract: string;
+  content: string;
+  authorId: string;
+  authorType: UserType;
+  status: ArticleStatus;
+  keywords: string[];
+  references: IReference[];
+  version: number;
+  versions: Array<{ version: number; content: string; changes: string; createdAt: string; createdBy: string }>;
+  validations: IValidation[];
+  requiredValidations: number;
+  completedValidations: number;
+  qualityScores: IQualityScores;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt?: string;
+  views: number;
+  citations: number;
+  downloads: number;
+}
+
+export interface IUser {
+  id: string;
+  type: UserType;
+  name: string;
+  email?: string;
+  avatar?: string;
+  bio?: string;
+  createdAt: string;
+  updatedAt: string;
+  reputation: {
+    score: number;
+    level: string;
+    validationsCompleted: number;
+    validationsApproved: number;
+    articlesSubmitted: number;
+    articlesPublished: number;
+    citationsReceived: number;
+    impactFactor: number;
+  };
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
+  message?: string;
+}
+
+export interface IDashboardStats {
+  totalArticles: number;
+  publishedArticles: number;
+  pendingValidations: number;
+  activeValidators: number;
+  averageQualityScore: number;
+  networkGrowth: number[];
+}
+
+export interface IValidatorLeaderboard {
+  validatorId: string;
+  name: string;
+  type: UserType;
+  validationsCompleted: number;
+  accuracy: number;
+  reputation: number;
 }

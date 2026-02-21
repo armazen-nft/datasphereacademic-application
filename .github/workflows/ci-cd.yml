@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: frontend-build
-          path: dist/
+          path: .next/
           retention-days: 7
 
   # ============================================
@@ -135,7 +135,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frontend-build
-          path: dist/
+          path: .next/
 
       - name: Deploy to Staging Server
         env:
@@ -148,7 +148,7 @@ jobs:
           
           # Sync frontend files
           rsync -avz -e "ssh -i staging_key.pem -o StrictHostKeyChecking=no" \
-            dist/ $STAGING_USER@$STAGING_HOST:/var/www/moltbook-staging/
+            .next/ $STAGING_USER@$STAGING_HOST:/var/www/moltbook-staging/.next/
           
           # Deploy backend via SSH
           ssh -i staging_key.pem -o StrictHostKeyChecking=no \
@@ -184,7 +184,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frontend-build
-          path: dist/
+          path: .next/
 
       - name: Deploy Frontend to Vercel
         uses: vercel/action-deploy@v1
