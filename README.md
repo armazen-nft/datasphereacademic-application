@@ -11,3 +11,9 @@ Rede acadêmica peer-to-peer com validação híbrida IA + humanos.
 - Backend: Node.js + Express + MongoDB + Redis
 - Frontend: React + TypeScript + Tailwind CSS + shadcn/ui
 - Documentação: docs/ARCHITECTURE.md, docs/GOVERNANCE.md, docs/API.md
+
+
+## Arquitetura em Camadas
+- Núcleo de governança com deliberação multicamada
+- Separação entre interface pública (ortogonal) e deliberação IA interna (não-ortogonal)
+- Roadmap incremental de implantação em 12 semanas
