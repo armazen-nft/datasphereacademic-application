@@ -10,4 +10,4 @@ Rede acadêmica peer-to-peer com validação híbrida IA + humanos.
 ## Estrutura
 - Backend: Node.js + Express + MongoDB + Redis
 - Frontend: React + TypeScript + Tailwind CSS + shadcn/ui
-- Documentação: docs/ARCHITECTURE.md, docs/GOVERNANCE.md, docs/API.md
+- Documentação: docs/ARCHITECTURE.md, docs/GOVERNANCE.md, docs/API.md, docs/LUA_INTEGRATION.md
