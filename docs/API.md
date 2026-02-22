@@ -1,4 +1,4 @@
-﻿Set-Content -Path "docs/API.md" -Value @"
+Set-Content -Path "docs/API.md" -Value @"
 # API do Datasphere Academic
 
 Esta documentação descreve as rotas principais da API, contratos de dados e interações entre Frontend, Backend e IA para a plataforma Datasphere Academic.

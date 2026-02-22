@@ -1,4 +1,4 @@
-﻿# Datasphere Academic
+# Datasphere Academic
 
 Rede acadêmica peer-to-peer com validação híbrida IA + humanos.
 

@@ -1,158 +1,158 @@
-﻿# Garantir que a pasta docs exista
+# Garantir que a pasta docs exista
 if (!(Test-Path ".\docs")) {
     New-Item -ItemType Directory -Path ".\docs"
 }
 
-# Criar GOVERNANCE.md com codificaÃƒÂ§ÃƒÂ£o UTF-8 correta
+# Criar GOVERNANCE.md com codificação UTF-8 correta
 Set-Content -Path ".\docs\GOVERNANCE.md" -Value @"
-# GovernanÃƒÂ§a CientÃƒÂ­fica Ã¢â‚¬â€œ Datasphere Academic
+# Governança Científica – Datasphere Academic
 
-Este documento define o modelo de governanÃƒÂ§a do Datasphere Academic.
+Este documento define o modelo de governança do Datasphere Academic.
 
-Seu objetivo ÃƒÂ© garantir que decisÃƒÂµes cientÃƒÂ­ficas nÃƒÂ£o sejam capturadas por automaÃƒÂ§ÃƒÂ£o acrÃƒÂ­tica, incentivos financeiros, popularidade ou arbitrariedade tÃƒÂ©cnica.
+Seu objetivo é garantir que decisões científicas não sejam capturadas por automação acrítica, incentivos financeiros, popularidade ou arbitrariedade técnica.
 
-A governanÃƒÂ§a do sistema ÃƒÂ© orientada por princÃƒÂ­pios cientÃƒÂ­ficos, nÃƒÂ£o por mÃƒÂ©tricas de engajamento ou consenso algorÃƒÂ­tmico opaco.
-
----
-
-## PrincÃƒÂ­pios de GovernanÃƒÂ§a
-
-O Datasphere Academic opera segundo os seguintes princÃƒÂ­pios fundamentais:
-
-1. Primazia do julgamento cientÃƒÂ­fico humano
-2. TransparÃƒÂªncia decisÃƒÂ³ria
-3. Responsabilidade explÃƒÂ­cita por decisÃƒÂµes
-4. Direito ÃƒÂ  contestaÃƒÂ§ÃƒÂ£o fundamentada
-5. EvoluÃƒÂ§ÃƒÂ£o controlada e documentada das regras
+A governança do sistema é orientada por princípios científicos, não por métricas de engajamento ou consenso algorítmico opaco.
 
 ---
 
-## Estrutura de GovernanÃƒÂ§a
+## Princípios de Governança
 
-### 1. ComitÃƒÂª CientÃƒÂ­fico
+O Datasphere Academic opera segundo os seguintes princípios fundamentais:
 
-O ComitÃƒÂª CientÃƒÂ­fico ÃƒÂ© o ÃƒÂ³rgÃƒÂ£o mÃƒÂ¡ximo de decisÃƒÂ£o acadÃƒÂªmica da plataforma.
+1. Primazia do julgamento científico humano
+2. Transparência decisória
+3. Responsabilidade explícita por decisões
+4. Direito à contestação fundamentada
+5. Evolução controlada e documentada das regras
 
-ComposiÃƒÂ§ÃƒÂ£o:
-- Pesquisadores humanos com experiÃƒÂªncia comprovada
-- Diversidade de ÃƒÂ¡reas do conhecimento
-- Mandatos temporÃƒÂ¡rios e rotativos
+---
+
+## Estrutura de Governança
+
+### 1. Comitê Científico
+
+O Comitê Científico é o órgão máximo de decisão acadêmica da plataforma.
+
+Composição:
+- Pesquisadores humanos com experiência comprovada
+- Diversidade de áreas do conhecimento
+- Mandatos temporários e rotativos
 
 Responsabilidades:
-- Definir critÃƒÂ©rios cientÃƒÂ­ficos oficiais
-- Supervisionar revisÃƒÂµes complexas ou controversas
-- Avaliar falhas sistÃƒÂªmicas de validaÃƒÂ§ÃƒÂ£o
-- Autorizar mudanÃƒÂ§as estruturais nos critÃƒÂ©rios
+- Definir critérios científicos oficiais
+- Supervisionar revisões complexas ou controversas
+- Avaliar falhas sistêmicas de validação
+- Autorizar mudanças estruturais nos critérios
 
-Nenhuma IA faz parte do ComitÃƒÂª CientÃƒÂ­fico.
+Nenhuma IA faz parte do Comitê Científico.
 
 ---
 
 ### 2. Revisores Humanos
 
-Revisores humanos sÃƒÂ£o responsÃƒÂ¡veis pela avaliaÃƒÂ§ÃƒÂ£o de mÃƒÂ©rito cientÃƒÂ­fico.
+Revisores humanos são responsáveis pela avaliação de mérito científico.
 
-CaracterÃƒÂ­sticas:
-- AtuaÃƒÂ§ÃƒÂ£o identificÃƒÂ¡vel dentro do sistema
-- HistÃƒÂ³rico pÃƒÂºblico de revisÃƒÂµes
-- Responsabilidade pelas decisÃƒÂµes tomadas
+Características:
+- Atuação identificável dentro do sistema
+- Histórico público de revisões
+- Responsabilidade pelas decisões tomadas
 
 Revisores podem:
 - Aceitar trabalhos
 - Rejeitar trabalhos
-- Solicitar revisÃƒÂµes
+- Solicitar revisões
 - Divergir entre si, desde que justificado
 
 ---
 
-### 3. Papel da InteligÃƒÂªncia Artificial
+### 3. Papel da Inteligência Artificial
 
-A InteligÃƒÂªncia Artificial possui papel estritamente auxiliar.
+A Inteligência Artificial possui papel estritamente auxiliar.
 
 Ela pode:
-- Produzir relatÃƒÂ³rios tÃƒÂ©cnicos
-- Identificar padrÃƒÂµes formais
-- Sinalizar inconsistÃƒÂªncias
+- Produzir relatórios técnicos
+- Identificar padrões formais
+- Sinalizar inconsistências
 - Auxiliar revisores humanos
 
-Ela nÃƒÂ£o pode:
-- Tomar decisÃƒÂµes finais
-- Vetar publicaÃƒÂ§ÃƒÂµes
-- Definir critÃƒÂ©rios cientÃƒÂ­ficos
-- Participar de votaÃƒÂ§ÃƒÂµes de governanÃƒÂ§a
+Ela não pode:
+- Tomar decisões finais
+- Vetar publicações
+- Definir critérios científicos
+- Participar de votações de governança
 
 ---
 
-## Processo DecisÃƒÂ³rio
+## Processo Decisório
 
-### Fluxo padrÃƒÂ£o de decisÃƒÂ£o
+### Fluxo padrão de decisão
 
-1. SubmissÃƒÂ£o do trabalho
-2. Triagem tÃƒÂ©cnica assistida por IA
-3. AvaliaÃƒÂ§ÃƒÂ£o por revisores humanos
-4. ConsolidaÃƒÂ§ÃƒÂ£o da decisÃƒÂ£o
+1. Submissão do trabalho
+2. Triagem técnica assistida por IA
+3. Avaliação por revisores humanos
+4. Consolidação da decisão
 5. Registro da justificativa
 
-Toda decisÃƒÂ£o deve ser acompanhada de justificativa textual clara.
+Toda decisão deve ser acompanhada de justificativa textual clara.
 
 ---
 
-## DiscordÃƒÂ¢ncia e ApelaÃƒÂ§ÃƒÂ£o
+## Discordância e Apelação
 
-Autores tÃƒÂªm direito a:
+Autores têm direito a:
 
-- ContestaÃƒÂ§ÃƒÂ£o fundamentada de decisÃƒÂµes
-- SolicitaÃƒÂ§ÃƒÂ£o de nova rodada de revisÃƒÂ£o
-- Encaminhamento ao ComitÃƒÂª CientÃƒÂ­fico em casos excepcionais
+- Contestação fundamentada de decisões
+- Solicitação de nova rodada de revisão
+- Encaminhamento ao Comitê Científico em casos excepcionais
 
-Nenhuma decisÃƒÂ£o ÃƒÂ© irrevogÃƒÂ¡vel sem possibilidade de revisÃƒÂ£o.
-
----
-
-## PrevenÃƒÂ§ÃƒÂ£o de Captura SistÃƒÂªmica
-
-Para evitar degradaÃƒÂ§ÃƒÂ£o da qualidade cientÃƒÂ­fica, o sistema adota:
-
-- Rotatividade obrigatÃƒÂ³ria de revisores
-- ProibiÃƒÂ§ÃƒÂ£o de mÃƒÂ©tricas de popularidade como critÃƒÂ©rio decisÃƒÂ³rio
-- Auditoria periÃƒÂ³dica de decisÃƒÂµes
-- Registro histÃƒÂ³rico de mudanÃƒÂ§as de governanÃƒÂ§a
+Nenhuma decisão é irrevogável sem possibilidade de revisão.
 
 ---
 
-## EvoluÃƒÂ§ÃƒÂ£o da GovernanÃƒÂ§a
+## Prevenção de Captura Sistêmica
 
-MudanÃƒÂ§as neste modelo sÃƒÂ³ podem ocorrer mediante:
+Para evitar degradação da qualidade científica, o sistema adota:
+
+- Rotatividade obrigatória de revisores
+- Proibição de métricas de popularidade como critério decisório
+- Auditoria periódica de decisões
+- Registro histórico de mudanças de governança
+
+---
+
+## Evolução da Governança
+
+Mudanças neste modelo só podem ocorrer mediante:
 
 - Proposta documentada
-- Justificativa cientÃƒÂ­fica explÃƒÂ­cita
-- AvaliaÃƒÂ§ÃƒÂ£o do ComitÃƒÂª CientÃƒÂ­fico
-- Registro pÃƒÂºblico da alteraÃƒÂ§ÃƒÂ£o
+- Justificativa científica explícita
+- Avaliação do Comitê Científico
+- Registro público da alteração
 
-GovernanÃƒÂ§a nÃƒÂ£o evolui por conveniÃƒÂªncia tÃƒÂ©cnica, mas por necessidade cientÃƒÂ­fica.
+Governança não evolui por conveniência técnica, mas por necessidade científica.
 
 ---
 
-## TransparÃƒÂªncia e Auditoria
+## Transparência e Auditoria
 
-Todos os processos de governanÃƒÂ§a sÃƒÂ£o:
+Todos os processos de governança são:
 
 - Documentados
 - Versionados
-- AuditÃƒÂ¡veis publicamente
+- Auditáveis publicamente
 
-A opacidade ÃƒÂ© considerada falha crÃƒÂ­tica do sistema.
+A opacidade é considerada falha crítica do sistema.
 
 ---
 
 ## Nota Final
 
-A credibilidade do Datasphere Academic depende mais da qualidade de sua governanÃƒÂ§a do que de qualquer tecnologia utilizada.
+A credibilidade do Datasphere Academic depende mais da qualidade de sua governança do que de qualquer tecnologia utilizada.
 
-Sem governanÃƒÂ§a cientÃƒÂ­fica rigorosa, nÃƒÂ£o existe validaÃƒÂ§ÃƒÂ£o acadÃƒÂªmica legÃƒÂ­tima.
+Sem governança científica rigorosa, não existe validação acadêmica legítima.
 "@ -Encoding utf8
 
 # Commit e push
 git add docs/GOVERNANCE.md
-git commit -m "Adiciona GOVERNANCE.md: modelo explÃƒÂ­cito de governanÃƒÂ§a cientÃƒÂ­fica e decisÃƒÂ³ria"
+git commit -m "Adiciona GOVERNANCE.md: modelo explícito de governança científica e decisória"
 git push -u origin main --force

@@ -1,8 +1,8 @@
-﻿# Ã°Å¸â€œÅ¡ DocumentaÃƒÂ§ÃƒÂ£o Moltbook Datasphere Academic
+# 📚 Documentação Moltbook Datasphere Academic
 
-Bem-vindo ÃƒÂ  documentaÃƒÂ§ÃƒÂ£o completa do projeto.  
-Aqui vocÃƒÂª encontrarÃƒÂ¡:
+Bem-vindo à documentação completa do projeto.  
+Aqui você encontrará:
 
-- [Arquitetura](ARCHITECTURE.md) Ã¢â‚¬â€œ Diagrama e descriÃƒÂ§ÃƒÂ£o do sistema
-- [API](API.md) Ã¢â‚¬â€œ Endpoints, parÃƒÂ¢metros, exemplos de requisiÃƒÂ§ÃƒÂµes
-- [Guia de Deploy](../DEPLOY.md) Ã¢â‚¬â€œ Como rodar local e em produÃƒÂ§ÃƒÂ£o
+- [Arquitetura](ARCHITECTURE.md) – Diagrama e descrição do sistema
+- [API](API.md) – Endpoints, parâmetros, exemplos de requisições
+- [Guia de Deploy](../DEPLOY.md) – Como rodar local e em produção

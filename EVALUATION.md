@@ -1,31 +1,31 @@
-﻿# AvaliaÃ§Ã£o do Datasphere Academic
+# Avaliação do Datasphere Academic
 
-## ?? VisÃ£o Geral
-Plataforma fullstack peer-to-peer para colaboraÃ§Ã£o acadÃªmica entre IAs e humanos, com validaÃ§Ã£o automÃ¡tica de artigos, meritocracia digital e rastreabilidade de citaÃ§Ãµes.
+## ?? Visão Geral
+Plataforma fullstack peer-to-peer para colaboração acadêmica entre IAs e humanos, com validação automática de artigos, meritocracia digital e rastreabilidade de citações.
 
 ## ? Pontos Fortes
-- Conceito inovador: colaboraÃ§Ã£o IA-humano, meritocracia digital, rastreabilidade de citaÃ§Ãµes
-- Stack tecnolÃ³gico moderno, modular e escalÃ¡vel
-- Proposta de valor clara: pesquisa rigorosa e reproducÃ­vel
+- Conceito inovador: colaboração IA-humano, meritocracia digital, rastreabilidade de citações
+- Stack tecnológico moderno, modular e escalável
+- Proposta de valor clara: pesquisa rigorosa e reproducível
 
-## ?? Pontos de AtenÃ§Ã£o
-- DocumentaÃ§Ã£o ainda superficial (README, diagramas P2P, fluxos)
-- Modelo de governanÃ§a pouco detalhado (consenso, treinamento, viÃ©s IA)
-- QuestÃµes tÃ©cnicas: escalabilidade, interoperabilidade, appeal em validaÃ§Ãµes IA
-- DiferenciaÃ§Ã£o de mercado ainda nÃ£o demonstrada (vs ResearchGate, Elicit, Orvium)
+## ?? Pontos de Atenção
+- Documentação ainda superficial (README, diagramas P2P, fluxos)
+- Modelo de governança pouco detalhado (consenso, treinamento, viés IA)
+- Questões técnicas: escalabilidade, interoperabilidade, appeal em validações IA
+- Diferenciação de mercado ainda não demonstrada (vs ResearchGate, Elicit, Orvium)
 
-## ?? RecomendaÃ§Ãµes
+## ?? Recomendações
 **Curto prazo:** README detalhado, CONTRIBUTING.md, whitepaper/PITCH.md  
-**MÃ©dio prazo:** MVP funcional, definiÃ§Ã£o stack exata  
-**Longo prazo:** Parcerias acadÃªmicas, auditoria de smart contracts, compliance legal
+**Médio prazo:** MVP funcional, definição stack exata  
+**Longo prazo:** Parcerias acadêmicas, auditoria de smart contracts, compliance legal
 
 ## ?? Veredicto
-| CritÃ©rio | Nota | ComentÃ¡rio |
+| Critério | Nota | Comentário |
 |----------|------|------------|
-| InovaÃ§Ã£o | ????? | Conceito visionÃ¡rio |
-| ExecuÃ§Ã£o atual | ?? | RepositÃ³rio embrionÃ¡rio |
-| DocumentaÃ§Ã£o | ? | Necessita melhorias urgentes |
-| Viabilidade tÃ©cnica | ??? | ViÃ¡vel, mas complexa |
-| Potencial impacto | ????? | Pode transformar publicaÃ§Ã£o acadÃªmica
+| Inovação | ????? | Conceito visionário |
+| Execução atual | ?? | Repositório embrionário |
+| Documentação | ? | Necessita melhorias urgentes |
+| Viabilidade técnica | ??? | Viável, mas complexa |
+| Potencial impacto | ????? | Pode transformar publicação acadêmica
 
-Resumo: Conceito excepcional, execuÃ§Ã£o embrionÃ¡ria. Foco em POC funcional, documentaÃ§Ã£o tÃ©cnica e early adopters Ã© essencial.
+Resumo: Conceito excepcional, execução embrionária. Foco em POC funcional, documentação técnica e early adopters é essencial.
