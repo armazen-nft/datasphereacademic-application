@@ -72,11 +72,13 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: backend/package-lock.json
+          # backend/package-lock.json is not committed in this repo,
+          # so use package.json to build a stable cache key.
+          cache-dependency-path: backend/package.json
 
       - name: Install backend dependencies
         working-directory: ./backend
-        run: npm ci
+        run: npm install
 
       - name: Build backend
         working-directory: ./backend
