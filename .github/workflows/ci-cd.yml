@@ -12,12 +12,24 @@ env:
   JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
 jobs:
+  markdown-encoding:
+    name: Markdown Encoding Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validar UTF-8 dos arquivos Markdown
+        run: python3 scripts/check-markdown-encoding.py
+
   # ============================================
   # FRONTEND BUILD & TEST
   # ============================================
   frontend:
     name: Frontend Build
     runs-on: ubuntu-latest
+    needs: markdown-encoding
     
     steps:
       - name: Checkout code
@@ -51,6 +63,7 @@ jobs:
   backend:
     name: Backend Build & Test
     runs-on: ubuntu-latest
+    needs: markdown-encoding
     
     services:
       mongodb:

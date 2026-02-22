@@ -1,6 +1,6 @@
-# Revisão Técnica do Datasphere Academic
+# RevisÃ£o TÃ©cnica do Datasphere Academic
 
-Este documento registra uma análise crítica detalhada da arquitetura, critérios de avaliação e autonomia da IA no projeto Datasphere Academic.
+Este documento registra uma anÃ¡lise crÃ­tica detalhada da arquitetura, critÃ©rios de avaliaÃ§Ã£o e autonomia da IA no projeto Datasphere Academic.
 
-## Reavaliação Técnica
+## ReavaliaÃ§Ã£o TÃ©cnica
 
