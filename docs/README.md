@@ -1,8 +1,14 @@
-﻿# Ã°Å¸â€œÅ¡ DocumentaÃƒÂ§ÃƒÂ£o Moltbook Datasphere Academic
+# Documentação do Datasphere Academic
 
-Bem-vindo ÃƒÂ  documentaÃƒÂ§ÃƒÂ£o completa do projeto.  
-Aqui vocÃƒÂª encontrarÃƒÂ¡:
+## Índice
 
-- [Arquitetura](ARCHITECTURE.md) Ã¢â‚¬â€œ Diagrama e descriÃƒÂ§ÃƒÂ£o do sistema
-- [API](API.md) Ã¢â‚¬â€œ Endpoints, parÃƒÂ¢metros, exemplos de requisiÃƒÂ§ÃƒÂµes
-- [Guia de Deploy](../DEPLOY.md) Ã¢â‚¬â€œ Como rodar local e em produÃƒÂ§ÃƒÂ£o
+- [Arquitetura](ARCHITECTURE.md)
+- [Governança](GOVERNANCE.md)
+- [Roadmap detalhado](ROADMAP.md)
+- [API](API.md)
+- [Guia de deploy](../DEPLOY.md)
+
+## Estado atual da documentação
+
+- Arquivos estruturais (`ARCHITECTURE.md`, `GOVERNANCE.md`, `ROADMAP.md`) atualizados para refletir o estado real do repositório.
+- Parte da documentação legada ainda pode conter inconsistências de encoding/conteúdo e será revisada incrementalmente.
