@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
@@ -73,6 +74,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
           cache-dependency-path: backend/package-lock.json
 
       - name: Install backend dependencies

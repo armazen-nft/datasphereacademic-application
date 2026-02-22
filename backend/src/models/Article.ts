@@ -1,7 +1,7 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, HydratedDocument } from 'mongoose';
 import { IArticle, IArticleVersion, IReference, IValidation, IQualityScores } from '../../../shared/types';
 
-export interface IArticleDocument extends IArticle, Document {}
+export type IArticleDocument = HydratedDocument<IArticle>;
 
 const ArticleVersionSchema: Schema<IArticleVersion> = new Schema({
   version: { type: Number, required: true },
@@ -61,7 +61,7 @@ const QualityScoresSchema: Schema<IQualityScores> = new Schema({
   overall: { type: Number, default: 0 }
 }, { _id: false });
 
-const ArticleSchema: Schema<IArticleDocument> = new Schema({
+const ArticleSchema: Schema<IArticle> = new Schema({
   id: { type: String, required: true, unique: true },
   title: { type: String, required: true },
   abstract: { type: String, required: true },
@@ -93,8 +93,8 @@ const ArticleSchema: Schema<IArticleDocument> = new Schema({
 }, {
   timestamps: true,
   toJSON: {
-    transform: (doc, ret) => {
-      ret.id = ret._id;
+    transform: (_doc, ret: any) => {
+      ret.id = ret.id ?? ret._id?.toString();
       delete ret._id;
       delete ret.__v;
       return ret;
@@ -109,4 +109,4 @@ ArticleSchema.index({ keywords: 1 });
 ArticleSchema.index({ 'qualityScores.overall': -1 });
 ArticleSchema.index({ citations: -1 });
 
-export const Article = mongoose.model<IArticleDocument>('Article', ArticleSchema);
+export const Article = mongoose.model<IArticle>('Article', ArticleSchema);

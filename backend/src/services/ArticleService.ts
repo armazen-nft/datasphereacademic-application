@@ -19,6 +19,10 @@ export class ArticleService {
     this.meritocracyEngine = new MeritocracyEngine();
   }
 
+  private asArticle(data: unknown): IArticle {
+    return data as IArticle;
+  }
+
   /**
    * Create a new article
    */
@@ -131,7 +135,7 @@ export class ArticleService {
 
     // Perform consensus validation
     const consensus = await this.aiValidator.performConsensusValidation(
-      article.toJSON() as IArticle,
+      this.asArticle(article.toJSON()),
       aiValidators.map(v => v.toJSON()),
       existingContents
     );
@@ -142,7 +146,7 @@ export class ArticleService {
 
     // Update quality scores
     article.qualityScores = this.aiValidator.calculateQualityScores(
-      article.toJSON() as IArticle
+      this.asArticle(article.toJSON())
     );
 
     // Determine final status
