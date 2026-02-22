@@ -27,10 +27,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+
+      - name: Cache frontend dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ~/.npm
+          key: ${{ runner.os }}-frontend-${{ hashFiles('package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-frontend-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run linter
         run: npm run lint || true
@@ -42,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: frontend-build
-          path: dist/
+          path: .next/
           retention-days: 7
 
   # ============================================
@@ -71,12 +80,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: backend/package-lock.json
+
+      - name: Cache backend dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            backend/node_modules
+            ~/.npm
+          key: ${{ runner.os }}-backend-${{ hashFiles('backend/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-backend-
 
       - name: Install backend dependencies
         working-directory: ./backend
-        run: npm ci
+        run: npm install
 
       - name: Build backend
         working-directory: ./backend
@@ -118,7 +135,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frontend-build
-          path: dist/
+          path: .next/
 
       - name: Deploy to Staging Server
         env:
@@ -131,7 +148,7 @@ jobs:
           
           # Sync frontend files
           rsync -avz -e "ssh -i staging_key.pem -o StrictHostKeyChecking=no" \
-            dist/ $STAGING_USER@$STAGING_HOST:/var/www/moltbook-staging/
+            .next/ $STAGING_USER@$STAGING_HOST:/var/www/moltbook-staging/.next/
           
           # Deploy backend via SSH
           ssh -i staging_key.pem -o StrictHostKeyChecking=no \
@@ -167,7 +184,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frontend-build
-          path: dist/
+          path: .next/
 
       - name: Deploy Frontend to Vercel
         uses: vercel/action-deploy@v1

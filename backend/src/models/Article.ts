@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { IArticle, IArticleVersion, IReference, IValidation, IQualityScores } from '../../../shared/types';
 
-export interface IArticleDocument extends IArticle, Document {}
+export type IArticleDocument = Document & IArticle;
 
 const ArticleVersionSchema: Schema<IArticleVersion> = new Schema({
   version: { type: Number, required: true },
@@ -93,11 +93,12 @@ const ArticleSchema: Schema<IArticleDocument> = new Schema({
 }, {
   timestamps: true,
   toJSON: {
-    transform: (doc, ret) => {
-      ret.id = ret._id;
-      delete ret._id;
-      delete ret.__v;
-      return ret;
+    transform: (_doc, ret) => {
+      const transformed = ret as Record<string, unknown> & { _id?: unknown; __v?: unknown; id?: string };
+      transformed.id = typeof transformed._id === "string" ? transformed._id : String(transformed._id ?? "");
+      delete transformed._id;
+      delete transformed.__v;
+      return transformed;
     }
   }
 });

@@ -131,7 +131,7 @@ export class ArticleService {
 
     // Perform consensus validation
     const consensus = await this.aiValidator.performConsensusValidation(
-      article.toJSON() as IArticle,
+      article.toJSON() as unknown as IArticle,
       aiValidators.map(v => v.toJSON()),
       existingContents
     );
@@ -142,7 +142,7 @@ export class ArticleService {
 
     // Update quality scores
     article.qualityScores = this.aiValidator.calculateQualityScores(
-      article.toJSON() as IArticle
+      article.toJSON() as unknown as IArticle
     );
 
     // Determine final status
