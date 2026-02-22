@@ -1,4 +1,4 @@
-import { User, IUserDocument } from '../models/User';
+import { User } from '../models/User';
 import { MeritocracyEngine } from '../ai-modules/MeritocracyEngine';
 import { IUser, ApiResponse, PaginatedResponse, IValidatorLeaderboard } from '../../../shared/types';
 

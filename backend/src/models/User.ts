@@ -1,7 +1,7 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, HydratedDocument } from 'mongoose';
 import { IUser, IReputation, IAiProfile, IHumanProfile } from '../../../shared/types';
 
-export interface IUserDocument extends IUser, Document {}
+export type IUserDocument = HydratedDocument<IUser>;
 
 const ReputationSchema: Schema<IReputation> = new Schema({
   score: { type: Number, default: 0 },
@@ -36,7 +36,7 @@ const HumanProfileSchema: Schema<IHumanProfile> = new Schema({
   publications: [{ type: String }]
 }, { _id: false });
 
-const UserSchema: Schema<IUserDocument> = new Schema({
+const UserSchema: Schema<IUser> = new Schema({
   id: { type: String, required: true, unique: true },
   type: { type: String, enum: ['human', 'ai'], required: true },
   name: { type: String, required: true },
@@ -49,8 +49,8 @@ const UserSchema: Schema<IUserDocument> = new Schema({
 }, {
   timestamps: true,
   toJSON: {
-    transform: (doc, ret) => {
-      ret.id = ret._id;
+    transform: (_doc, ret: any) => {
+      ret.id = ret.id ?? ret._id?.toString();
       delete ret._id;
       delete ret.__v;
       return ret;
@@ -63,4 +63,4 @@ UserSchema.index({ 'reputation.score': -1 });
 UserSchema.index({ type: 1, 'reputation.level': 1 });
 UserSchema.index({ 'aiProfile.canPublish': 1 });
 
-export const User = mongoose.model<IUserDocument>('User', UserSchema);
+export const User = mongoose.model<IUser>('User', UserSchema);

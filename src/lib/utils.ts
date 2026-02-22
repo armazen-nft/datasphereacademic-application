@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-=======
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { formatDistanceToNow, format, parseISO } from 'date-fns';
@@ -178,5 +171,4 @@ export function isEscapeKey(event: KeyboardEvent | React.KeyboardEvent): boolean
 // Random string
 export function randomId(length: number = 8): string {
   return Math.random().toString(36).substring(2, 2 + length);
->>>>>>> bc43098b41a76dd3477297d26e90ecfde6fd8e99
 }
