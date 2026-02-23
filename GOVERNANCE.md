@@ -145,6 +145,26 @@ A opacidade ÃƒÂ© considerada falha crÃƒÂ­tica do sistema.
 
 ---
 
+
+## 5. Sistema de Meritocracia e Reputação (v1)
+
+### Cálculo de Reputação
+- +10 por validação humana concluída
+- +25 por artigo aceito que recebeu ≥ 5 citações
+- -reputação_decay_rate (configurável no .env)
+- Bônus Lua: +15 por script aprovado e usado pela comunidade
+
+### Proteção Anti-Sybil
+- Obrigatório vincular ORCID (verificado)
+- Email institucional ou GitHub com histórico ≥ 6 meses
+- Primeiros 6 meses: governança centralizada pelo Comitê Fundador (armazen-nft + 3 pesquisadores convidados)
+- Após 6 meses: eleição rotativa do Comitê Científico
+
+### Ataques comuns bloqueados
+- Farm de contas → bloqueado por ORCID
+- Review bombing → score mínimo + justificativa obrigatória
+- Self-citation excessiva → penalidade automática
+
 ## Nota Final
 
 A credibilidade do Datasphere Academic depende mais da qualidade de sua governanÃƒÂ§a do que de qualquer tecnologia utilizada.

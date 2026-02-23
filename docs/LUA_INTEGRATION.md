@@ -59,3 +59,9 @@ A Lua é uma boa candidata para a camada de extensão do Datasphere Academic por
   - **Mitigação:** suite de testes por tradutor e schema validation.
 - **Risco:** complexidade operacional.
   - **Mitigação:** rollout progressivo com feature flags.
+
+## Exemplos Prontos
+- `examples/lua/scripts/check_orcid.lua`
+- `examples/lua/scripts/extract_citations_abnt.lua`
+
+Qualquer pesquisador pode submeter novos scripts via PR → aprovação automática após 2 validações humanas.
