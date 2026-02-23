@@ -4,7 +4,8 @@ import type {
   IUser, 
   PaginatedResponse, 
   IDashboardStats,
-  IValidatorLeaderboard 
+  IValidatorLeaderboard,
+  IPaperValidationResult
 } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
@@ -105,6 +106,14 @@ class ApiService {
 
   async getArticleStats(): Promise<ApiResponse<IDashboardStats>> {
     return this.request<IDashboardStats>('/articles/stats');
+  }
+
+
+  async validatePaper(text: string): Promise<ApiResponse<IPaperValidationResult>> {
+    return this.request<IPaperValidationResult>('/papers/validate', {
+      method: 'POST',
+      body: JSON.stringify({ text })
+    });
   }
 
   // ==================== USERS ====================

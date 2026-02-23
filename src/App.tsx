@@ -6,6 +6,7 @@ import { ArticleDetail } from './sections/ArticleDetail';
 import { ArticleSubmit } from './sections/ArticleSubmit';
 import { Validators } from './sections/Validators';
 import { Leaderboard } from './sections/Leaderboard';
+import { ValidatePaper } from './sections/ValidatePaper';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/submit" element={<ArticleSubmit />} />
             <Route path="/validators" element={<Validators />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/validate" element={<ValidatePaper />} />
           </Routes>
         </main>
       </div>
