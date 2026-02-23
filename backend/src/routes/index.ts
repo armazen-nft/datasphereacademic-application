@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import articleRoutes from './articleRoutes';
 import userRoutes from './userRoutes';
+import paperRoutes from './paperRoutes';
 
 const router = Router();
 
 router.use('/articles', articleRoutes);
 router.use('/users', userRoutes);
+router.use('/papers', paperRoutes);
 
 // Health check
 router.get('/health', (req, res) => {

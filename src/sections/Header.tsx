@@ -9,7 +9,8 @@ import {
   X,
   User,
   LogOut,
-  BarChart3
+  BarChart3,
+  ShieldCheck
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useStore } from '../store/useStore';
@@ -20,6 +21,7 @@ const navItems = [
   { label: 'Submeter', path: '/submit', icon: PlusCircle },
   { label: 'Validadores', path: '/validators', icon: Users },
   { label: 'Ranking', path: '/leaderboard', icon: Trophy },
+  { label: 'Validação IA', path: '/validate', icon: ShieldCheck },
 ];
 
 export function Header() {

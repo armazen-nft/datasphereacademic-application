@@ -182,6 +182,21 @@ export interface PaginatedResponse<T> {
   hasMore: boolean;
 }
 
+
+
+export interface IPaperValidationDetail {
+  name: string;
+  approved: boolean;
+  score: number;
+}
+
+export interface IPaperValidationResult {
+  status: 'APPROVED' | 'REJECTED';
+  confidence: number;
+  details: IPaperValidationDetail[];
+  textLength: number;
+}
+
 // ============================================
 // DASHBOARD TYPES
 // ============================================
