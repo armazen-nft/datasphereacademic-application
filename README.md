@@ -1,13 +1,31 @@
-﻿# Datasphere Academic
+# Datasphere Academic
 
-Rede acadêmica peer-to-peer com validação híbrida IA + humanos.
+Mudança de rumo aplicada: foco em **MVP funcional** ao invés de escopo amplo.
 
-## Submissão de Artigos
-- Upload de artigos científicos
-- Comentários e ensaios críticos (1.000 a 6.000 caracteres)
-- Revisão IA inicial + validação humana
+## MVP atual
 
-## Estrutura
-- Backend: Node.js + Express + MongoDB + Redis
-- Frontend: React + TypeScript + Tailwind CSS + shadcn/ui
-- Documentação: docs/ARCHITECTURE.md, docs/GOVERNANCE.md, docs/API.md, docs/LUA_INTEGRATION.md
+- 1 endpoint funcional de validação: `POST /api/validate`
+- 3 provedores de IA: OpenAI, Anthropic e Gemini
+- Consenso simples por maioria
+- Fallback simulado quando API key não está configurada
+
+## Rodando backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+Servidor padrão: `http://localhost:3001`
+
+## Exemplo rápido
+
+```bash
+curl -X POST http://localhost:3001/api/validate \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "title":"Sample",
+    "content":"Este é um texto de exemplo com mais de duzentos caracteres para exercitar o endpoint de validação inicial. O objetivo é obter três avaliações independentes de provedores de IA e consolidar um consenso simples para decidir entre aprovação inicial ou necessidade de revisão."
+  }'
+```
