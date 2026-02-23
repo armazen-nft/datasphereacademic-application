@@ -1,0 +1,39 @@
+name: "Piloto – Quero testar"
+description: Manifestação de interesse para participar do piloto fechado.
+title: "Piloto – Quero testar"
+labels:
+  - piloto
+  - onboarding
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por seu interesse no piloto fechado do Datasphere Academic!
+  - type: input
+    id: nome
+    attributes:
+      label: Nome
+      placeholder: Seu nome completo
+    validations:
+      required: true
+  - type: input
+    id: instituicao
+    attributes:
+      label: Instituição
+      placeholder: Universidade / Centro de pesquisa
+    validations:
+      required: true
+  - type: input
+    id: github
+    attributes:
+      label: Perfil GitHub
+      placeholder: https://github.com/seu-usuario
+    validations:
+      required: true
+  - type: textarea
+    id: motivacao
+    attributes:
+      label: Como você pretende contribuir no piloto?
+      placeholder: Conte brevemente como deseja testar e colaborar.
+    validations:
+      required: true
