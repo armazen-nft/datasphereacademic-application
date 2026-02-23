@@ -1,5 +1,6 @@
 import { User, IUserDocument } from '../models/User';
 import { MeritocracyEngine } from '../ai-modules/MeritocracyEngine';
+import { userMapper } from '../mappers/userMapper';
 import { IUser, ApiResponse, PaginatedResponse, IValidatorLeaderboard } from '../../../shared/types';
 
 export class UserService {
@@ -43,7 +44,7 @@ export class UserService {
 
       await user.save();
 
-      return { success: true, data: user.toJSON() as IUser };
+      return { success: true, data: userMapper.toDTO(user) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -59,7 +60,7 @@ export class UserService {
         return { success: false, error: 'User not found' };
       }
 
-      return { success: true, data: user.toJSON() as IUser };
+      return { success: true, data: userMapper.toDTO(user) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -75,7 +76,7 @@ export class UserService {
         return { success: false, error: 'User not found' };
       }
 
-      return { success: true, data: user.toJSON() as IUser };
+      return { success: true, data: userMapper.toDTO(user) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -113,7 +114,7 @@ export class UserService {
       return {
         success: true,
         data: {
-          items: users.map(u => u.toJSON() as IUser),
+          items: userMapper.toDTOArray(users),
           total,
           page,
           limit,
@@ -140,12 +141,12 @@ export class UserService {
       
       // Recalculate reputation if needed
       if (updates.reputation) {
-        user.reputation = this.meritocracyEngine.calculateReputation(user.toJSON());
+        user.reputation = this.meritocracyEngine.calculateReputation(userMapper.toDTO(user));
       }
 
       await user.save();
 
-      return { success: true, data: user.toJSON() as IUser };
+      return { success: true, data: userMapper.toDTO(user) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -182,8 +183,9 @@ export class UserService {
         return { success: false, error: 'Only AI users have validation quotas' };
       }
 
-      const quota = this.meritocracyEngine.getValidationQuota(user.toJSON());
-      const canPublish = this.meritocracyEngine.canPublish(user.toJSON());
+      const userDTO = userMapper.toDTO(user);
+      const quota = this.meritocracyEngine.getValidationQuota(userDTO);
+      const canPublish = this.meritocracyEngine.canPublish(userDTO);
 
       return {
         success: true,
@@ -230,7 +232,7 @@ export class UserService {
 
       return {
         success: true,
-        data: validators.map(v => v.toJSON() as IUser)
+        data: userMapper.toDTOArray(validators)
       };
     } catch (error) {
       return { success: false, error: (error as Error).message };
@@ -250,7 +252,7 @@ export class UserService {
         return { success: false, error: 'User not found' };
       }
 
-      const updatedUser = this.meritocracyEngine.awardBonus(user.toJSON(), bonusType);
+      const updatedUser = this.meritocracyEngine.awardBonus(userMapper.toDTO(user), bonusType);
       
       await User.updateOne({ id: userId }, updatedUser);
 
@@ -273,7 +275,7 @@ export class UserService {
         return { success: false, error: 'User not found' };
       }
 
-      const updatedUser = this.meritocracyEngine.applyPenalty(user.toJSON(), penaltyType);
+      const updatedUser = this.meritocracyEngine.applyPenalty(userMapper.toDTO(user), penaltyType);
       
       await User.updateOne({ id: userId }, updatedUser);
 

@@ -71,7 +71,7 @@ export class CitationValidator {
     const invalidReferences = this.countInvalidReferences(references);
     const unverifiedReferences = references.length - validReferences - invalidReferences;
     const consistencyScore = await this.checkCitationConsistency(content, references);
-    const suggestions = this.generateCitationSuggestions(references, content);
+    const suggestions = this.generateSuggestions(references, content);
 
     return {
       validReferences,

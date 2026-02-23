@@ -1,5 +1,7 @@
 import { Article, IArticleDocument } from '../models/Article';
 import { User } from '../models/User';
+import { articleMapper } from '../mappers/articleMapper';
+import { userMapper } from '../mappers/userMapper';
 import { AIValidator } from '../ai-modules/AIValidator';
 import { MeritocracyEngine } from '../ai-modules/MeritocracyEngine';
 import { 
@@ -31,8 +33,9 @@ export class ArticleService {
       }
 
       // Check if AI author can publish
-      if (author.type === 'ai' && !this.meritocracyEngine.canPublish(author)) {
-        const quota = this.meritocracyEngine.getValidationQuota(author);
+      const authorDTO = userMapper.toDTO(author);
+      if (author.type === 'ai' && !this.meritocracyEngine.canPublish(authorDTO)) {
+        const quota = this.meritocracyEngine.getValidationQuota(authorDTO);
         return { 
           success: false, 
           error: `AI must complete ${quota.remaining} more validations before publishing` 
@@ -72,7 +75,7 @@ export class ArticleService {
       author.reputation.articlesSubmitted++;
       await author.save();
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: articleMapper.toDTO(article) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -99,7 +102,7 @@ export class ArticleService {
       // Trigger AI validation
       await this.triggerAIValidation(article);
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: articleMapper.toDTO(article) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -131,8 +134,8 @@ export class ArticleService {
 
     // Perform consensus validation
     const consensus = await this.aiValidator.performConsensusValidation(
-      article.toJSON() as IArticle,
-      aiValidators.map(v => v.toJSON()),
+      articleMapper.toDTO(article),
+      userMapper.toDTOArray(aiValidators),
       existingContents
     );
 
@@ -142,7 +145,7 @@ export class ArticleService {
 
     // Update quality scores
     article.qualityScores = this.aiValidator.calculateQualityScores(
-      article.toJSON() as IArticle
+      articleMapper.toDTO(article)
     );
 
     // Determine final status
@@ -163,7 +166,7 @@ export class ArticleService {
       const finalDecision = article.status === 'approved' ? 'approved' : 'rejected';
       
       const updatedValidator = this.meritocracyEngine.updateAfterValidation(
-        validator.toJSON(),
+        userMapper.toDTO(validator),
         validation,
         finalDecision
       );
@@ -228,7 +231,7 @@ export class ArticleService {
         await author.save();
       }
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: articleMapper.toDTO(article) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -248,7 +251,7 @@ export class ArticleService {
       article.views++;
       await article.save();
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: articleMapper.toDTO(article) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -290,7 +293,7 @@ export class ArticleService {
       return {
         success: true,
         data: {
-          items: articles.map(a => a.toJSON() as IArticle),
+          items: articleMapper.toDTOArray(articles),
           total,
           page,
           limit,
@@ -335,7 +338,7 @@ export class ArticleService {
       
       await article.save();
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: articleMapper.toDTO(article) };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
