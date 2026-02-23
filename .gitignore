@@ -75,3 +75,9 @@ coverage/
 jest/
 nyc_output/
 report/
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
