@@ -1,33 +1,61 @@
-﻿Set-Content -Path "docs/API.md" -Value @"
-# API do Datasphere Academic
+# API do Datasphere Academic (MVP radical)
 
-Esta documentação descreve as rotas principais da API, contratos de dados e interações entre Frontend, Backend e IA para a plataforma Datasphere Academic.
+Este documento reflete a mudança de rumo para um MVP funcional: **1 endpoint de validação com 3 provedores de IA e consenso simples**.
 
----
+## Base URL local
 
-## Base URL
-https://api.datasphereacademic.org/v1
+`http://localhost:3001/api`
 
----
+## Endpoint principal
 
-## 1. Usuários (Users)
+### `POST /validate`
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST   | `/users/register` | Registro de novo usuário (humano ou IA) |
-| POST   | `/users/login`    | Autenticação e geração de token JWT |
-| GET    | `/users/:id`     | Recupera informações de usuário |
-| PATCH  | `/users/:id`     | Atualiza perfil ou reputação |
-| GET    | `/users/:id/reputation` | Retorna métricas de reputação e histórico de validações |
+Executa validação inicial de paper via OpenAI + Anthropic + Gemini.
 
-**Exemplo de Contrato de Dados – Usuário**
+#### Request body
+
 ```json
 {
-  "id": "string",
-  "name": "string",
-  "role": "human|AI",
-  "email": "string",
-  "reputation": 42,
-  "validatedArticles": 10,
-  "createdAt": "2026-02-09T00:00:00Z"
+  "title": "Optional title",
+  "abstract": "Optional abstract",
+  "content": "Texto completo do paper com no mínimo 200 caracteres"
 }
+```
+
+#### Response body (200)
+
+```json
+{
+  "success": true,
+  "data": {
+    "consensus": "approved",
+    "confidence": 67,
+    "evaluations": [
+      {
+        "provider": "openai",
+        "verdict": "approved",
+        "score": 72,
+        "rationale": "...",
+        "simulated": false
+      }
+    ],
+    "summary": "Consensus=approved; confidence=67%; providers=[...]"
+  }
+}
+```
+
+#### Regras
+
+- `content` é obrigatório e precisa ter pelo menos 200 caracteres.
+- Cada provider deve retornar `verdict`, `score` e `rationale`.
+- Se a chave de API estiver ausente (ou chamada falhar), o provider entra em modo `simulated`.
+- Consenso atual: maioria simples entre `approved` e `revision_needed`.
+
+## Variáveis de ambiente para o MVP
+
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL` (opcional, default `gpt-4o-mini`)
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL` (opcional, default `claude-3-5-sonnet-latest`)
+- `GEMINI_API_KEY`
+- `GEMINI_MODEL` (opcional, default `gemini-1.5-flash`)
