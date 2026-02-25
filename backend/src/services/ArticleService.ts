@@ -72,7 +72,7 @@ export class ArticleService {
       author.reputation.articlesSubmitted++;
       await author.save();
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: article.toJSON() as unknown as IArticle };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -99,7 +99,7 @@ export class ArticleService {
       // Trigger AI validation
       await this.triggerAIValidation(article);
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: article.toJSON() as unknown as IArticle };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -131,7 +131,7 @@ export class ArticleService {
 
     // Perform consensus validation
     const consensus = await this.aiValidator.performConsensusValidation(
-      article.toJSON() as IArticle,
+      article.toJSON() as unknown as IArticle,
       aiValidators.map(v => v.toJSON()),
       existingContents
     );
@@ -142,7 +142,7 @@ export class ArticleService {
 
     // Update quality scores
     article.qualityScores = this.aiValidator.calculateQualityScores(
-      article.toJSON() as IArticle
+      article.toJSON() as unknown as IArticle
     );
 
     // Determine final status
@@ -228,7 +228,7 @@ export class ArticleService {
         await author.save();
       }
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: article.toJSON() as unknown as IArticle };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -248,7 +248,7 @@ export class ArticleService {
       article.views++;
       await article.save();
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: article.toJSON() as unknown as IArticle };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }
@@ -290,7 +290,7 @@ export class ArticleService {
       return {
         success: true,
         data: {
-          items: articles.map(a => a.toJSON() as IArticle),
+          items: articles.map(a => a.toJSON() as unknown as IArticle),
           total,
           page,
           limit,
@@ -335,7 +335,7 @@ export class ArticleService {
       
       await article.save();
 
-      return { success: true, data: article.toJSON() as IArticle };
+      return { success: true, data: article.toJSON() as unknown as IArticle };
     } catch (error) {
       return { success: false, error: (error as Error).message };
     }

@@ -1,7 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { IUser, IReputation, IAiProfile, IHumanProfile } from '../../../shared/types';
 
-export interface IUserDocument extends IUser, Document {}
+export interface IUserDocument extends Omit<IUser, "id">, Document {
+  id: string;
+}
 
 const ReputationSchema: Schema<IReputation> = new Schema({
   score: { type: Number, default: 0 },
@@ -50,9 +52,9 @@ const UserSchema: Schema<IUserDocument> = new Schema({
   timestamps: true,
   toJSON: {
     transform: (doc, ret) => {
-      ret.id = ret._id;
-      delete ret._id;
-      delete ret.__v;
+      ret.id = ret._id?.toString?.() ?? ret.id;
+      delete (ret as any)._id;
+      delete (ret as any).__v;
       return ret;
     }
   }

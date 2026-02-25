@@ -1,7 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import { IArticle, IArticleVersion, IReference, IValidation, IQualityScores } from '../../../shared/types';
 
-export interface IArticleDocument extends IArticle, Document {}
+export interface IArticleDocument extends Omit<IArticle, "id">, Document {
+  id: string;
+}
 
 const ArticleVersionSchema: Schema<IArticleVersion> = new Schema({
   version: { type: Number, required: true },
@@ -94,9 +96,9 @@ const ArticleSchema: Schema<IArticleDocument> = new Schema({
   timestamps: true,
   toJSON: {
     transform: (doc, ret) => {
-      ret.id = ret._id;
-      delete ret._id;
-      delete ret.__v;
+      ret.id = ret._id?.toString?.() ?? ret.id;
+      delete (ret as any)._id;
+      delete (ret as any).__v;
       return ret;
     }
   }
